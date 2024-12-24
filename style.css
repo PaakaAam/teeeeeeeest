@@ -1,0 +1,496 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Spartan",sans-serif;
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: 64px;
+    line-height: 1.5;
+}
+
+h2{
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+h4{
+    font-size: 14px;
+    line-height: 64px;
+    color: #222;
+}
+
+h6{
+    font-weight: 700;
+    font-size: 12px;
+}
+
+p{
+    font-size: 16px;
+    margin: 0 15px 20px 0;
+    color:#465b52;
+}
+
+body{
+    width: 100%;
+    margin: 0;
+    background-color:#f1fafc;
+}
+
+.body-sl{
+    background-image: url("img/sl.png");
+    height: 120vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 90px;
+    background-color: #f8f8f9fc;
+    box-shadow: 0 5px 15px rgba(32,32,32,0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 25px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+#navbar li a:hover,li a.active{
+    color: #03b177;
+}
+
+#navbar li a:hover::after,li a.active::after{
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 2px;
+    background: #fa9302;
+    bottom: -4px;
+    left: 24px;
+    transition: 0.3s;
+}
+
+#mobile{
+    display: none;
+    align-items: center;
+}
+
+#close{
+    display: none;
+}
+
+#hero{
+    background-image: url("img/hero.png");
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    text-align: bottom;
+    position: relative;
+}
+
+#hero::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85)
+}
+
+#hero h1,#hero h2,#hero .btn{
+    position: relative;
+    z-index: 1;
+    color: rgb(220, 226, 231);
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+#hero h2{
+    padding-top: 25px;
+    color: #f1fafc;
+    font-size: 50px;
+}
+
+#hero h1{
+    padding-bottom: 50px;
+    padding-top: 50px;
+    font-weight: bold;
+    font-size: 85px;
+}
+
+.btn{
+    padding: 20px 40px;
+    margin: 15px;
+    color: black;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0.5px solid white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10000000px;
+    text-transform: uppercase;
+    box-shadow: none;
+    transition: 0.2;
+}
+
+.btn:hover{
+    background-color: #d12e2e;
+    transform: translateY(-6px);
+}
+
+.poll{
+    position: relative;
+    width: 400px;
+    left: 50%;
+    top: 22vh;
+    transform: translate(-50%,-50%);
+    background: #ffff;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    margin-bottom: 100px;
+    margin-top: 80px;
+}
+
+.poll .question{
+    padding: 20px;
+    color: #111;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eee;
+}
+
+.poll .answers{
+    padding: 20px;
+}
+
+.poll .answers .answer{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    border: 1px solid #d4d4d4;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.poll .answers .answer.selected{
+    border: 2px solid #8f9fe8;
+}
+
+.poll .answers .answer span.percentage_value
+{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 40px;
+    color: #111;
+    font-size: 15px;
+}
+
+.poll .answers .answer span.percentage_bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #97b5f5;
+    z-index: -2;
+    transition: width 200ms ease-in-out;
+}
+
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: #d4d4e4e4;
+    padding: 40px 80px;
+    width: 100%;
+    margin: 2px auto 10px auto;
+    position: relative;
+    border: 1px solid #e9e9fbe4;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+footer .col{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+footer h4{
+    font-size: 17px;
+    color: #333333;
+}
+
+footer p{
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    color: #333333;
+}
+
+footer a{
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+footer .follow{
+    margin-top: 20px;
+}
+
+footer .follow i{
+    cursor: pointer;
+    padding-right: 4px;
+    color: #333333;
+}
+
+footer .follow i:hover,footer a:hover{
+    color: #088178;
+    transition: 0.2 ease-in;
+}
+
+footer .cr{
+    text-align: center;
+    width: 100%;
+    color: #666666;
+}
+
+.app{
+    position: relative;
+    left: 70%;
+    top: 35vh;
+    transform: translate(-50%, -50%);
+    background-color: rgb(203, 229, 234);
+    border-radius: 10px;
+    width: 350px;
+    padding: 90px;
+    margin: 100px 10px;
+}
+.app h1{
+  font-weight: 25px;
+  font-weight: 600;
+  color: darkblue;
+  padding-bottom: 30px;
+}
+.quiz{
+  padding: 20px, 0px;
+}
+.quiz h2{
+  font-size: 18px;
+  font-weight: 600;
+}
+.btn2{
+  background: #fff;
+  color: black;
+  font-weight: 500;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn2:hover:not([disabled]) {
+  background-color: black;
+  color: white;
+}
+.btn2:disabled{
+    cursor: no-drop;
+}
+
+#next-btn{
+  background-color: #001e4d;
+  color: white;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none;
+}
+.correct{
+    background: #9aeabc;
+}
+.incorrect{
+    background: #ff9393;
+}
+
+@media(max-width: 799px){
+    .poll{
+        top: 18vh;
+        width: 500px;
+    }
+    .app{
+        left: 50%;
+        top: 36vh;
+        width: 400px;
+    }
+}
+
+@media(max-width: 1099px){
+    .body-sl{
+        background-size: auto;
+        background-position: left bottom;
+        height: 30vh;
+    }
+    .app{
+        left: 36%;
+        top: 32vh;
+        width: 400px;
+        margin: 150px;
+    }
+    .poll{
+        top: 14vh;
+        width: 800px;
+    }
+}
+
+@media (max-width: 477px){
+    #navbar{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 250px;
+        background-color: #E3E6F3;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    #navbar.active{
+        right: 0px;
+
+    }
+
+    #navbar li a.active::after,
+    #navbar li a:hover::after{
+    left: 25px;
+    }
+
+    #navbar li{
+        margin-bottom: 25px;
+
+    }
+
+    #mobile{
+        display: flex;
+        align-items: center;
+    }
+
+    #mobile i{
+        color:#1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    #close{
+        position: absolute;
+        top: 30px;
+        left: 32px;
+        color: #222;
+        font-size: 24px;
+        display: initial;
+    }
+
+    #hero{
+        height: 98vh;
+        padding: 0 80px;
+        background-position: top 30% right 51%;
+    }
+    
+    #header{
+        padding: 10px 30px;
+    }
+
+    .poll{
+        width: 330px;
+    }
+
+    footer {
+        display: block;
+        text-align: left;
+        padding: 20px 15px !important;
+        width: 100%;
+    }
+
+    footer .col {
+        width: 100%; 
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    footer .col h4, 
+    footer .col a {
+        font-size: 14px;
+        line-height: 1.4;
+        text-align: left; 
+    }
+
+    footer .follow {
+        margin-top: 15px;
+    }
+
+    footer .follow i {
+        font-size: 18px;
+        padding-right: 8px;
+    }
+
+    footer .copyright {
+        padding-top: 15px;
+        width: 100%;
+        font-size: 12px;
+        text-align: center;
+    }
+    .app{
+        left: 15%;
+        top: 45vh;
+        width: 350px;
+    }
+}
